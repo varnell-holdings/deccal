@@ -9,16 +9,16 @@ cal = calendar.Calendar()
 
 
 TIMETABLE = {
-    'monday_a': [['Feller/Bowring', '07:30 AM', 'Room 1'], ['Bariol/Tillett', '07:30 AM', 'Room 2'], ['Rotation/Bowring', '01:30 PM', 'Room 1'], ['Meagher/Tillett', '1:30 PM', 'Room 2'], ],
-    'monday_b': [['Feller/Brown', '07:30 AM', 'Room 1'], ['Bariol/Tillett', '07:30 AM', 'Room 2'], ['Rotation/Brown', '01:30 PM', 'Room 1'], ['Meagher/Tillett', '1:30 PM', 'Room 2'], ],
-    'tuesday_a': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Vuong', '07:30 AM', 'Room 2'], ['Danta/Tillett', '01:30 PM', 'Room 1'], ['Gett/Tester', '1:30 PM', 'Room 2'], ],
-    'tuesday_b': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Vuong', '07:30 AM', 'Room 2'], ['Danta/Tillett', '01:30 PM', 'Room 1'], ['Gett/Tester', '1:30 PM', 'Room 2'], ],
-    'wednesday_a': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Vickers/Riley', '07:30 AM', 'Room 2'], ['Free/Tillett', '01:30 PM', 'Room 1'], ['Williams/Riley', '1:30 PM', 'Room 2'], ],
-    'wednesday_b': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Vickers/Riley', '07:30 AM', 'Room 2'], ['Free/Tillett', '01:30 PM', 'Room 1'], ['Ghaly/Riley', '1:30 PM', 'Room 2'], ],
-    'thursday_a': [['Feller/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Stevens', '07:30 AM', 'Room 2'], ['Meagher/Tillett', '01:00 PM', 'Room 1'], ['Williams/Stevens', '1:30 PM', 'Room 2'], ],
-    'thursday_b': [['Feller/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Brown', '07:30 AM', 'Room 2'], ['Meagher/Tillett', '01:00 PM', 'Room 1'], ['Williams/Brown', '1:30 PM', 'Room 2'], ],
-    'friday_a': [['Vickers/Tillett', '07:30 AM', 'Room 1'], ["Suhirdan/O'Sullivan", '07:30 AM', 'Room 2'], ['Meagher/Tillett', '01:30 PM', 'Room 1'], ["Ghaly/O'Sullivan", '1:30 PM', 'Room 2'], ],
-    'friday_b': [['Vickers/Tillett', '07:30 AM', 'Room 1'], ['Suhirdan/Vuong', '07:30 AM', 'Room 2'], ['Lord/Tillett', '01:30 PM', 'Room 1'], ['Ghaly/Vuong', '1:30 PM', 'Room 2'], ],
+    'monday_a': [['Feller/Bowring', '07:30 AM', 'Room 1'], ['Bariol/Tillett', '07:30 AM', 'XRay'], ['Rotation/Bowring', '01:30 PM', 'Room 1'], ['Meagher/Tillett', '1:30 PM', 'XRay'], ],
+    'monday_b': [['Feller/Brown', '07:30 AM', 'Room 1'], ['Bariol/Tillett', '07:30 AM', 'XRay'], ['Rotation/Brown', '01:30 PM', 'Room 1'], ['Meagher/Tillett', '1:30 PM', 'XRay'], ],
+    'tuesday_a': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Vuong', '07:30 AM', 'XRay'], ['Danta/Tillett', '01:30 PM', 'Room 1'], ['Gett/Tester', '1:30 PM', 'XRay'], ],
+    'tuesday_b': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Vuong', '07:30 AM', 'XRay'], ['Danta/Tillett', '01:30 PM', 'Room 1'], ['Gett/Tester', '1:30 PM', 'XRay'], ],
+    'wednesday_a': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Vickers/Riley', '07:30 AM', 'XRay'], ['Free/Tillett', '01:30 PM', 'Room 1'], ['Williams/Riley', '1:30 PM', 'XRay'], ],
+    'wednesday_b': [['Wettstein/Tillett', '07:30 AM', 'Room 1'], ['Vickers/Riley', '07:30 AM', 'XRay'], ['Free/Tillett', '01:30 PM', 'Room 1'], ['Ghaly/Riley', '1:30 PM', 'XRay'], ],
+    'thursday_a': [['Feller/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Stevens', '07:30 AM', 'XRay'], ['Meagher/Tillett', '01:00 PM', 'Room 1'], ['Williams/Stevens', '1:30 PM', 'XRay'], ],
+    'thursday_b': [['Feller/Tillett', '07:30 AM', 'Room 1'], ['Stoita/Brown', '07:30 AM', 'XRay'], ['Meagher/Tillett', '01:00 PM', 'Room 1'], ['Williams/Brown', '1:30 PM', 'XRay'], ],
+    'friday_a': [['Ghaly/Tillett', '07:30 AM', 'Room 1'], ["Suhirdan/O'Sullivan", '07:30 AM', 'XRay'], ['Meagher/Tillett', '01:30 PM', 'Room 1'], ["Vickers/O'Sullivan", '1:30 PM', 'XRay'], ],
+    'friday_b': [['Ghaly/Tillett', '07:30 AM', 'Room 1'], ['Suhirdan/Vuong', '07:30 AM', 'XRay'], ['Lord/Tillett', '01:30 PM', 'Room 1'], ['Vickers/Vuong', '1:30 PM', 'XRay'], ],
 }
 
 
