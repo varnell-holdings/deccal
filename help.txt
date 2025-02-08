@@ -1,0 +1,21 @@
+Help for importing .csv files into Googlr Calendar.
+
+
+
+On the left mid way down you should see DEC Roster with a red check next to it.
+
+To the right of that there are three vertical dots.
+
+Click and choose Setting and Sharing.
+
+In the Settings page you will see three down from the top left 'Import & export'.
+
+Click and now you get 'Import' -> 'Select file from your computer'
+
+Choose D:\JOHN TILLET\source\calendar\files_for_google\'the one you want'
+
+IMPORTANT     below that in 'Add to calendar' choose 'DEC Roster'
+
+Click Import
+
+It will run and you are done for another three months!
