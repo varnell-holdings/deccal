@@ -1,5 +1,7 @@
 Deployment notes
 
+use four_week_calendar.py
+
 check if cls() working
 
 ? save csv file to desktop
