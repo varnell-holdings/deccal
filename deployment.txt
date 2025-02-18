@@ -1,0 +1,11 @@
+Deployment notes
+
+check if cls() working
+
+? save csv file to desktop
+
+? put help.txt on desktop
+
+update help file
+
+needs yaml file!!
