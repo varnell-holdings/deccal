@@ -6,8 +6,11 @@ import os
 import yaml
 
 cal = calendar.Calendar()
+# this gives us cal.itermonthdays2() which does the heavy lifting
 
 START_DATE_STRING = "2024-10-01"  # this is a Tuesday
+
+START_ROTATION = 3  # this is the rotation of the start date
 
 WEEK_DICT = {0: "monday", 1: "tuesday", 2: "wednesday", 3: "thursday", 4: "friday"}
 
@@ -15,6 +18,57 @@ MONTH_DISPLAY = {1: "Jan_Mar", 4: "Apr_Jun", 7: "Jul_Sept", 10: "Oct_Dec"}
 
 with open("timetable.yaml", "r") as f:
     TIMETABLE = yaml.safe_load(f)
+
+
+def intro():
+    def clear_screen():
+        os.system("cls")
+
+    clear_screen()
+
+    hi = """Welcome to the dec calendar maker!
+    This will generate a deccal.csv file for 3 months (trimester)
+    which can be imported into google calendar.
+    You will be asked to enter the year as 4 digits eg 2011
+    Enter the start month of the trimester you want to add
+    1: 'Jan_Mar', 4: 'Apr_Jun', 7: 'Jul_Sept', 10: 'Oct_Dec'
+
+    """
+    print(hi)
+
+    while True:
+        year = input("Year:  ")
+        if year.isdigit() and len(year) == 4:
+            break
+
+    while True:
+        start_month = input("Enter the start_month: ")
+        if start_month in {"1", "4", "7", "10"}:
+            break
+
+    return int(year), int(start_month)
+
+
+def last_week_flag_finder(month, year):
+    """Finds the week_flag of the last day of the last trimester."""
+
+    # get these dates into datetime objects
+    start_date = datetime.strptime(START_DATE_STRING, "%Y-%m-%d")
+    first_day_new_calendar = datetime.strptime(f"{year}-{month}-01", "%Y-%m-%d")
+
+    last_day_old_calendar = first_day_new_calendar - timedelta(days=1)
+    difference = last_day_old_calendar - start_date
+    days_between = difference.days
+    weeks_between = days_between // 7
+    extra_days = days_between % 7
+
+    # because Tuesday plus 6 goes to Monday - need an extra week flip
+    if extra_days == 6:
+        last_rotation = ((weeks_between + (START_ROTATION)) % 4) + 1
+    else:
+        last_rotation = ((weeks_between + (START_ROTATION - 1)) % 4) + 1
+
+    return last_rotation  # ie flag of last week of last trimester
 
 
 def is_holiday(day, month, year, weekday):
@@ -58,40 +112,9 @@ def holiday_genenerator(year, start_month):
                 yield "{}/{}/{}".format(monthday, month, year), Subject
 
 
-def last_week_flag_finder(month, year):
-    """Finds the week_flag of the last day of the last trimester."""
-
-    start_date = datetime.strptime(START_DATE_STRING, "%Y-%m-%d")
-
-    first_day_new_calendar = datetime.strptime(f"{year}-{month}-01", "%Y-%m-%d")
-
-    last_day_old_calendar = first_day_new_calendar - timedelta(days=1)
-
-    difference = last_day_old_calendar - start_date
-    days_between = difference.days
-    weeks_between = days_between // 7
-    extra_days = days_between % 7
-
-    start_rotation = 3
-
-    if (
-        extra_days == 6
-    ):  # because Tuesday plus 6 goes to Monday - need an extra week flip
-        last_rotation = ((weeks_between + (start_rotation)) % 4) + 1
-    else:
-        last_rotation = ((weeks_between + (start_rotation - 1)) % 4) + 1
-
-    return last_rotation  # ie last week's flag
-
-
-def rotate_week(flag):
-    """Move the week_flag one step thru the cycle 1,2,3,4,1..."""
-    flag = flag % 4
-    return flag + 1
-
-
 def weekdays_gen(year, start_month):
-    """Yields a tuple of day of month, weekday number and month number
+    """Helper for trimester_with_week_flag_gen
+    Yields a tuple of day of month, weekday number and month number
     for each weekday in trimester. Helper for trimester_with_week_flag_gen().
     cal.itermonthdays2 returns (day of month, weekday number)
     where 0 day of month means not in month and 0 weekday is Monday
@@ -104,9 +127,16 @@ def weekdays_gen(year, start_month):
 
 
 def trimester_with_week_flag_gen(year, week_flag, start_month):
-    """Yields a tuple of  formatted date eg 1/2/2017
-    and a string eg 'friday_3' as key to TIMETABLE representing
+    """Helper for write_calendar.
+    Yields a tuple of  formatted date eg 1/2/2017
+    and a string eg 'friday_3' which is the key to TIMETABLE representing
     day of week and week_flag"""
+
+    def rotate_week(flag):
+        """Move the week_flag one step thru the cycle 1,2,3,4,1..."""
+        flag = flag % 4
+        return flag + 1
+
     for monthday, weekday, month in weekdays_gen(year, start_month):
         if weekday == 0:
             week_flag = rotate_week(week_flag)
@@ -114,35 +144,6 @@ def trimester_with_week_flag_gen(year, week_flag, start_month):
             "{}/{}/{}".format(monthday, month, year),
             "{}_{}".format(WEEK_DICT[weekday], str(week_flag)),
         )
-
-
-def intro():
-    def clear_screen():
-        os.system("cls")
-
-    clear_screen()
-
-    hi = """Welcome to the dec calendar maker!
-    This will generate a deccal.csv file for 3 months (trimester)
-    which can be imported into google calendar.
-    You will be asked to enter the year as 4 digits eg 2011
-    Enter the start month of the trimester you want to add
-    1: 'Jan_Mar', 4: 'Apr_Jun', 7: 'Jul_Sept', 10: 'Oct_Dec'
-
-    """
-    print(hi)
-
-    while True:
-        year = input("Year:  ")
-        if year.isdigit() and len(year) == 4:
-            break
-
-    while True:
-        start_month = input("Enter the start_month: ")
-        if start_month in {"1", "4", "7", "10"}:
-            break
-
-    return int(year), int(start_month)
 
 
 def write_calendar(year, week_flag, start_month):
@@ -153,7 +154,7 @@ def write_calendar(year, week_flag, start_month):
             entry = event[0], date, event[1], False, event[2]
             cal_list.append(entry)
 
-    # 2.make holiday dictionary date:holiday title (Google uses 'Subject')
+    # 2.make holiday dictionary date:holiday_title (Google uses 'Subject')
     hol_dict = {
         date: Subject for (date, Subject) in holiday_genenerator(year, start_month)
     }
