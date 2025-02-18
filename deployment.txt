@@ -9,3 +9,5 @@ check if cls() working
 update help file
 
 needs yaml file!!
+
+where to put yaml file for easy user access

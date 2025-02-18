@@ -34,13 +34,13 @@ def is_holiday(day, month, year, weekday):
     if month == easter_monday.month and day == easter_monday.day:
         return True, "Easter Monday"
     # new years day
-    if month == 1 and day in {1}:
+    if month == 1 and day == 1:
         return True, "New Year's Day"
     # australia day
-    if month == 1 and day in {26}:
+    if month == 1 and day == 26:
         return True, "Australia Day"
     # anzac day
-    elif month == 4 and day in {25}:
+    elif month == 4 and day == 25:
         return True, "Anzac Day"
     # xmas and new year
     elif month == 12 and day in {25, 26, 27, 28, 29, 30, 31}:
@@ -142,23 +142,25 @@ def intro():
         if start_month in {"1", "4", "7", "10"}:
             break
 
-    return year, start_month
+    return int(year), int(start_month)
 
 
 def write_calendar(year, week_flag, start_month):
+    # 1.make initial cal_list:
     cal_list = []
     for date, key in trimester_with_week_flag_gen(year, week_flag, start_month):
         for event in TIMETABLE[key]:
             entry = event[0], date, event[1], False, event[2]
             cal_list.append(entry)
 
-    # remove holidays from cal list
-    hol_list = [
-        holiday_date for holiday_date, _ in holiday_genenerator(year, start_month)
-    ]
-    cal_list = [lis for lis in cal_list if lis[1] not in hol_list]
+    # 2.make holiday dictionary date:holiday title (Google uses 'Subject')
+    hol_dict = {
+        date: Subject for (date, Subject) in holiday_genenerator(year, start_month)
+    }
+    # 3. remove holidays from cal_list
+    cal_list = [lis for lis in cal_list if lis[1] not in hol_dict]
 
-    # write cal_list to csv
+    # 4.write cal_list to csv
     headers = ("Subject", "Start Date", "Start Time", "All Day Event", "Location")
     address = f"{year}_{MONTH_DISPLAY[start_month]}.csv"
     with open(address, "w") as f:
@@ -166,8 +168,8 @@ def write_calendar(year, week_flag, start_month):
         writer.writerow(headers)
         for i in cal_list:
             writer.writerow(i)
-        # now add in holidays - must do this last
-        for date, Subject in holiday_genenerator(year, start_month):
+        # 5.now write in holidays - must do this last
+        for date, Subject in hol_dict.items():
             entry = Subject, date, "", True, "Both Rooms"
             writer.writerow(entry)
 
@@ -175,9 +177,11 @@ def write_calendar(year, week_flag, start_month):
     input("\nPress Enter to close this screen:")
 
 
-if __name__ == "__main__":
+def main():
     year, start_month = intro()
     week_flag = last_week_flag_finder(start_month, year)
-    year = int(year)
-    start_month = int(start_month)
     write_calendar(year, week_flag, start_month)
+
+
+if __name__ == "__main__":
+    main()
