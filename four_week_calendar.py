@@ -1,7 +1,7 @@
 import calendar
 import csv
 from datetime import datetime, timedelta
-import dateutil.easter
+import dateutil
 import os
 import yaml
 
@@ -20,10 +20,24 @@ with open("timetable.yaml", "r") as f:
     TIMETABLE = yaml.safe_load(f)
 
 
-def intro():
-    def clear_screen():
-        os.system("cls")
+def clear_screen():
+    os.system("cls")
 
+
+def intro():
+    clear_screen()
+
+    hi = """Choose 'a' to edit the roster or 'b' to make a new 3 month roster.\n"""
+    print(hi)
+
+    while True:
+        choice = input()
+        if choice in {"a", "b"}:
+            break
+    return choice
+
+
+def second_page():
     clear_screen()
 
     hi = """Welcome to the dec calendar maker!
@@ -179,9 +193,13 @@ def write_calendar(year, week_flag, start_month):
 
 
 def main():
-    year, start_month = intro()
-    week_flag = last_week_flag_finder(start_month, year)
-    write_calendar(year, week_flag, start_month)
+    choice = intro()
+    if choice == "a":
+        pass
+    elif choice == "b":
+        year, start_month = second_page()
+        week_flag = last_week_flag_finder(start_month, year)
+        write_calendar(year, week_flag, start_month)
 
 
 if __name__ == "__main__":
