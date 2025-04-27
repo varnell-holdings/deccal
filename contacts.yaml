@@ -1,0 +1,22 @@
+# contacts.yaml
+page:
+  title: Contact Directory
+  header: Anaesthetist Contact List
+  footer: Last Updated April 2025
+
+contacts:
+  - name: Sabine Vuong
+    phone: 0414 636 447
+    email: sabinevuong@fastmail.com.au
+  
+  - name: Joh Barrett
+    phone: 0425 204 622
+    email: johannabarrett@hotmail.com
+  
+  - name: Jon Riley
+    phone: 0407 457 371
+    email: 
+  
+  - name: John Tillett
+    phone: 0408 116 320
+    email: tillett1957@gmail.com
