@@ -5,24 +5,24 @@ friday_1:
 - - Suhirdan/Riley
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/?
   - 01:30 PM
   - Room 1
 - - Mill/Riley
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 friday_2:
-- - Ghaly/Tillett
+- - Ghaly/Vuong
   - 07:30 AM
   - Room 1
-- - Suhirdan/Vuong
+- - Suhirdan/Tillett
   - 07:30 AM
   - XRay
 - - Lord/Tillett
   - 01:30 PM
   - Room 1
 - - Mill/Vuong
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 friday_3:
 - - Ghaly/Tillett
@@ -31,11 +31,11 @@ friday_3:
 - - Suhirdan/Riley
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/Tassie
   - 01:30 PM
   - Room 1
 - - Mill/Riley
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 friday_4:
 - - Ghaly/Tillett
@@ -48,20 +48,20 @@ friday_4:
   - 01:30 PM
   - Room 1
 - - Mill/Vuong
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 monday_1:
-- - Feller/Unallocatted
+- - Feller/Vuong
   - 07:30 AM
   - Room 1
 - - Bariol/Tillett
   - 07:30 AM
   - XRay
-- - Mill/Unallocated
+- - Mill/Tillett
   - 01:30 PM
   - Room 1
-- - Meagher/Tillett
-  - 1:30 PM
+- - Meagher/Tassie
+  - 2:00 PM
   - XRay
 monday_2:
 - - Feller/Brown
@@ -73,8 +73,8 @@ monday_2:
 - - Rotation/Brown
   - 01:30 PM
   - Room 1
-- - Meagher/Tillett
-  - 1:30 PM
+- - Meagher/Riley
+  - 2:00 PM
   - XRay
 monday_3:
 - - Feller/Stone
@@ -86,8 +86,8 @@ monday_3:
 - - Mill/Stone
   - 01:30 PM
   - Room 1
-- - Meagher/Tillett
-  - 1:30 PM
+- - Meagher/Moore
+  - 2:00 PM
   - XRay
 monday_4:
 - - Feller/Brown
@@ -99,8 +99,8 @@ monday_4:
 - - Rotation/Brown
   - 01:30 PM
   - Room 1
-- - Meagher/Tillett
-  - 1:30 PM
+- - Meagher/Riley
+  - 2:00 PM
   - XRay
 thursday_1:
 - - Feller/Tillett
@@ -109,7 +109,7 @@ thursday_1:
 - - Stoita/Stevens
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/KLee
   - 01:00 PM
   - Room 1
 - - Williams/Stevens
@@ -122,7 +122,7 @@ thursday_2:
 - - Stoita/Brown
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/Vuong
   - 01:00 PM
   - Room 1
 - - Williams/Brown
@@ -135,7 +135,7 @@ thursday_3:
 - - Stoita/Stevens
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/Barrett
   - 01:00 PM
   - Room 1
 - - Williams/Stevens
@@ -148,7 +148,7 @@ thursday_4:
 - - Stoita/Brown
   - 07:30 AM
   - XRay
-- - Meagher/Tillett
+- - Meagher/Tassie
   - 01:00 PM
   - Room 1
 - - Williams/Brown
@@ -162,10 +162,10 @@ tuesday_1:
   - 07:30 AM
   - XRay
 - - Danta/Tillett
-  - 01:30 PM
+  - 02:00 PM
   - Room 1
 - - Gett/Tester
-  - 1:30 PM
+  - 2:00 PM
   - XRay
 tuesday_2:
 - - Wettstein/Tillett
@@ -175,10 +175,10 @@ tuesday_2:
   - 07:30 AM
   - XRay
 - - Danta/Tillett
-  - 01:30 PM
+  - 02:00 PM
   - Room 1
 - - Gett/Tester
-  - 1:30 PM
+  - 2:00 PM
   - XRay
 tuesday_3:
 - - Wettstein/Tillett
@@ -188,10 +188,10 @@ tuesday_3:
   - 07:30 AM
   - XRay
 - - Danta/Tillett
-  - 01:30 PM
+  - 02:00 PM
   - Room 1
 - - Gett/Tester
-  - 1:30 PM
+  - 2:00 PM
   - XRay
 tuesday_4:
 - - Wettstein/Tillett
@@ -201,10 +201,10 @@ tuesday_4:
   - 07:30 AM
   - XRay
 - - Danta/Tillett
-  - 01:30 PM
+  - 02:00 PM
   - Room 1
 - - Gett/Lee
-  - 1:30 PM
+  - 2:00 PM
   - XRay
 wednesday_1:
 - - Wettstein/Tillett
@@ -217,7 +217,7 @@ wednesday_1:
   - 01:30 PM
   - Room 1
 - - Williams/Riley
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 wednesday_2:
 - - Wettstein/Tillett
@@ -243,7 +243,7 @@ wednesday_3:
   - 01:30 PM
   - Room 1
 - - Williams/Riley
-  - 1:30 PM
+  - 1:00 PM
   - XRay
 wednesday_4:
 - - Wettstein/Riley
