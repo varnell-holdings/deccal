@@ -1,8 +1,9 @@
 import calendar
 import csv
 from datetime import datetime, timedelta
-import dateutil
+import dateutil.easter
 import os
+from pathlib import Path
 import yaml
 
 cal = calendar.Calendar()
@@ -16,28 +17,34 @@ WEEK_DICT = {0: "monday", 1: "tuesday", 2: "wednesday", 3: "thursday", 4: "frida
 
 MONTH_DISPLAY = {1: "Jan_Mar", 4: "Apr_Jun", 7: "Jul_Sept", 10: "Oct_Dec"}
 
-with open("timetable.yaml", "r") as f:
+user = os.getenv("USERNAME")
+
+
+cal_path = Path("D:/JOHN TILLET/source/active/calendar")
+yaml_file = cal_path / "timetable.yaml"
+with open(yaml_file, "r") as f:
     TIMETABLE = yaml.safe_load(f)
 
 
 def clear_screen():
     os.system("cls")
 
-
 def intro():
     clear_screen()
 
     hi = """Choose 'a' to edit the roster or 'b' to make a new 3 month roster.\n"""
-    print(hi)
+
 
     while True:
-        choice = input()
+        choice = input(hi)
         if choice in {"a", "b"}:
             break
     return choice
 
-
 def second_page():
+    def clear_screen():
+        os.system("cls")
+
     clear_screen()
 
     hi = """Welcome to the dec calendar maker!
@@ -177,9 +184,9 @@ def write_calendar(year, week_flag, start_month):
 
     # 4.write cal_list to csv
     headers = ("Subject", "Start Date", "Start Time", "All Day Event", "Location")
-    address = f"{year}_{MONTH_DISPLAY[start_month]}.csv"
+    address = f"C:\\Users\\{user}\\Desktop\\{year}_{MONTH_DISPLAY[start_month]}.csv"
     with open(address, "w") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, dialect="excel", lineterminator="\n")
         writer.writerow(headers)
         for i in cal_list:
             writer.writerow(i)
@@ -190,12 +197,14 @@ def write_calendar(year, week_flag, start_month):
 
     print("\nSuccess!\nYou can now import the csv file.\n")
     input("\nPress Enter to close this screen:")
+    help_path = cal_path / "help.txt"
+    os.startfile(help_path)
 
 
 def main():
     choice = intro()
     if choice == "a":
-        pass
+        os.startfile(str(yaml_file))
     elif choice == "b":
         year, start_month = second_page()
         week_flag = last_week_flag_finder(start_month, year)
